@@ -325,12 +325,7 @@
     border-top:1px solid rgba(196,154,40,0.1);
     margin-top:1rem;gap:1rem;
   }
-  .price-block{}
-  .price-eyebrow{font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);}
-  .price{
-    font-family:'Cormorant Garamond',serif;
-    font-size:1.65rem;font-weight:500;color:var(--bark-mid);line-height:1.1;
-  }
+
   .where-btn{
     font-family:'Jost',sans-serif;
     font-size:0.68rem;font-weight:600;
@@ -551,7 +546,7 @@ const products = [
     id:'umf5_500g', umf:'5+', category:'everyday',
     name:'UMF™ 5+ Mānuka Honey', size:'500g',
     tier:'Entry Wellness', tierClass:'tier-entry',
-    price:'NZ$34.50', mgo:'MGO 83+ mg/kg', mgoPct:9,
+    mgo:'MGO 83+ mg/kg', mgoPct:9,
     desc:'A gentle, versatile everyday honey for daily wellness and whole-family use. With over 2,000 naturally occurring compounds, it supports immunity, throat comfort, and digestive health.',
     benefits:['Immunity','Throat Comfort','Digestive','Daily Use'],
   },
@@ -559,7 +554,7 @@ const products = [
     id:'umf10_500g', umf:'10+', category:'everyday',
     name:'UMF™ 10+ Mānuka Honey', size:'500g',
     tier:'Medium Activity', tierClass:'tier-medium',
-    price:'NZ$80.50', mgo:'MGO 261+ mg/kg', mgoPct:22,
+    mgo:'MGO 261+ mg/kg', mgoPct:22,
     desc:'A medium-activity Mānuka honey with stronger antibacterial properties than UMF 5+. A popular choice for supporting digestive balance, throat comfort, and everyday immune health.',
     benefits:['Digestive','Immunity','Throat','Antibacterial'],
   },
@@ -567,7 +562,7 @@ const products = [
     id:'umf15_250g', umf:'15+', category:'therapeutic',
     name:'UMF™ 15+ Mānuka Honey', size:'250g',
     tier:'High Activity', tierClass:'tier-high',
-    price:'NZ$87.50', mgo:'MGO 514+ mg/kg', mgoPct:40,
+    mgo:'MGO 514+ mg/kg', mgoPct:40,
     desc:'High-activity Mānuka honey with strong natural antibacterial properties. Supports digestive health, throat comfort, oral hygiene, and skin wellness. Gently processed at low temperature.',
     benefits:['Gut Health','Oral Care','Skin','Throat'],
   },
@@ -575,7 +570,7 @@ const products = [
     id:'umf20_250g', umf:'20+', category:'therapeutic',
     name:'UMF™ 20+ Mānuka Honey', size:'250g',
     tier:'Restorative Wellness', tierClass:'tier-premium',
-    price:'NZ$149', mgo:'MGO 829+ mg/kg', mgoPct:60,
+    mgo:'MGO 829+ mg/kg', mgoPct:60,
     desc:'Restorative Wellness Mānuka honey with exceptional antibacterial activity. Slow-heated below 40°C to preserve natural enzymes and crystals. Best taken on an empty stomach.',
     benefits:['Stomach Health','Digestive','Immunity','Topical Use'],
   },
@@ -583,7 +578,7 @@ const products = [
     id:'umf25_250g', umf:'25+', category:'premium',
     name:'UMF™ 25+ Mānuka Honey', size:'250g',
     tier:'Premium Restorative', tierClass:'tier-ultra',
-    price:'NZ$655', mgo:'MGO 1197+ mg/kg', mgoPct:78,
+    mgo:'MGO 1197+ mg/kg', mgoPct:78,
     desc:'Exceptionally high levels of MGO and polyphenols from remote New Zealand apiaries. Ideal for high-level health support, powerful immune function, and premium daily vitality.',
     benefits:['Immunity','Vitality','Antibacterial','Wellness'],
   },
@@ -591,7 +586,7 @@ const products = [
     id:'umf33_250g', umf:'33+', category:'premium',
     name:'UMF™ 33+ Mānuka Honey', size:'250g',
     tier:'Ultra Rare Reserve', tierClass:'tier-rare',
-    price:'NZ$3,999', mgo:'MGO 1917+ mg/kg', mgoPct:100,
+    mgo:'MGO 1917+ mg/kg', mgoPct:100,
     desc:'Among the rarest Mānuka honeys in existence. Harvested from the most pristine and remote apiaries in New Zealand — an extraordinary reserve-grade honey of exceptional potency.',
     benefits:['Ultra Potent','Reserve Grade','Rare Harvest','Premium'],
   },
@@ -621,10 +616,6 @@ function renderCards(list) {
         </div>
       </div>
       <div class="card-footer">
-        <div class="price-block">
-          <div class="price-eyebrow">RRP</div>
-          <div class="price">${p.price}</div>
-        </div>
         <a class="where-btn" href="mailto:info@aristafoods.co.nz?subject=Product Enquiry — ${encodeURIComponent(p.name)}">Enquire →</a>
       </div>
     </div>
