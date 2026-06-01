@@ -969,42 +969,42 @@
           <tr>
             <td><div class="product-name-cell"><span class="product-main-title" style="color:inherit;">Arista Mānuka Honey <span style="color:#C9A84C;">UMF™ 5+</span></span></div></td>
             <td>83 MGO/kg</td>
-            <td><input type="number" min="0" step="1200" value="0" placeholder="0" id="qty-5" class="qty-input" data-moq="1200" oninput="validateQty(this)"></td>
+            <td><input type="number" min="0" value="0" placeholder="0" id="qty-5" class="qty-input" data-moq="1200"></td>
           </tr>
           <tr>
             <td><div class="product-name-cell"><span class="product-main-title" style="color:inherit;">Arista Mānuka Honey <span style="color:#C9A84C;">UMF™ 10+</span></span></div></td>
             <td>261 MGO/kg</td>
-            <td><input type="number" min="0" step="1200" value="0" placeholder="0" id="qty-10" class="qty-input" data-moq="1200" oninput="validateQty(this)"></td>
+            <td><input type="number" min="0" value="0" placeholder="0" id="qty-10" class="qty-input" data-moq="1200"></td>
           </tr>
           <tr>
             <td><div class="product-name-cell"><span class="product-main-title" style="color:inherit;">Arista Mānuka Honey <span style="color:#C9A84C;">UMF™ 15+</span></span></div></td>
             <td>514 MGO/kg</td>
-            <td><input type="number" min="0" step="1200" value="0" placeholder="0" id="qty-15" class="qty-input" data-moq="1200" oninput="validateQty(this)"></td>
+            <td><input type="number" min="0" value="0" placeholder="0" id="qty-15" class="qty-input" data-moq="1200"></td>
           </tr>
           <tr>
             <td><div class="product-name-cell"><span class="product-main-title" style="color:inherit;">Arista Mānuka Honey <span style="color:#C9A84C;">UMF™ 20+</span></span></div></td>
             <td>826 MGO/kg</td>
-            <td><input type="number" min="0" step="1200" value="0" placeholder="0" id="qty-20" class="qty-input" data-moq="1200" oninput="validateQty(this)"></td>
+            <td><input type="number" min="0" value="0" placeholder="0" id="qty-20" class="qty-input" data-moq="1200"></td>
           </tr>
           <tr>
             <td><div class="product-name-cell"><span class="product-main-title" style="color:inherit;">Arista Mānuka Honey <span style="color:#C9A84C;">UMF™ 25+</span></span></div></td>
             <td>1197 MGO/kg</td>
-            <td><input type="number" min="0" step="1200" value="0" placeholder="0" id="qty-25" class="qty-input" data-moq="1200" oninput="validateQty(this)"></td>
+            <td><input type="number" min="0" value="0" placeholder="0" id="qty-25" class="qty-input" data-moq="1200"></td>
           </tr>
           <tr>
             <td><div class="product-name-cell"><span class="product-main-title" style="color:inherit;">Arista Mānuka Honey <span style="color:#C9A84C;">UMF™ 30+</span></span></div></td>
             <td>1620 MGO/kg</td>
-            <td><input type="number" min="0" step="1200" value="0" placeholder="0" id="qty-30" class="qty-input" data-moq="1200" oninput="validateQty(this)"></td>
+            <td><input type="number" min="0" value="0" placeholder="0" id="qty-30" class="qty-input" data-moq="1200"></td>
           </tr>
           <tr>
             <td><div class="product-name-cell"><span class="product-main-title" style="color:inherit;">Arista Mānuka Honey <span style="color:#C9A84C;">UMF™ 33+</span></span></div></td>
             <td>1917 MGO/kg</td>
-            <td><input type="number" min="0" step="1200" value="0" placeholder="0" id="qty-33" class="qty-input" data-moq="1200" oninput="validateQty(this)"></td>
+            <td><input type="number" min="0" value="0" placeholder="0" id="qty-33" class="qty-input" data-moq="1200"></td>
           </tr>
           <tr>
             <td><div class="product-name-cell"><span class="product-main-title">Mānuka Honey Water</span></div></td>
             <td>—</td>
-            <td><input type="number" min="0" step="600" value="0" placeholder="0" id="qty-water" class="qty-input" data-moq="600" oninput="validateQty(this)"></td>
+            <td><input type="number" min="0" value="0" placeholder="0" id="qty-water" class="qty-input" data-moq="600"></td>
           </tr>
           <tr>
             <td><div class="product-name-cell"><span class="product-main-title">Other</span></div></td>
@@ -1013,8 +1013,8 @@
           </tr>
         </tbody>
       </table>
-      <p id="qty-error" style="color:var(--red);font-size:0.72rem;display:none;margin-bottom:16px;">⚠ Honey jar quantities must be in multiples of 1,200 kg. Snap pack quantities must be in multiples of 600 kg.</p>
-      <p id="qty-min-error" style="color:var(--red);font-size:0.72rem;display:none;margin-bottom:16px;">⚠ Please enter a quantity for at least one product.</p>
+      <p id="qty-error" style="display:none;"></p>
+      <p id="qty-min-error" style="display:none;"></p>
 
       <div class="section-divider">Labelling &amp; Testing Requirements</div>
       <div class="form-group">
@@ -1272,13 +1272,7 @@
       if (missing) { alert('Please fill in all required fields before continuing.'); return; }
     }
     if (from === 2) {
-      const qtys = ['qty-5','qty-10','qty-15','qty-20','qty-25','qty-33'];
-      const vals = qtys.map(id => parseInt(document.getElementById(id).value) || 0);
-      const hasQty = vals.some(v => v > 0);
-      const allValid = vals.every(v => v === 0 || v % 1200 === 0);
-      document.getElementById('qty-min-error').style.display = hasQty ? 'none' : 'block';
-      document.getElementById('qty-error').style.display = allValid ? 'none' : 'block';
-      if (!hasQty || !allValid) return;
+      // Product quantities are optional — no validation required
     }
     if (from === 3) {
       const required = ['port-dest','incoterms','broker-name','broker-phone'];
